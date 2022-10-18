@@ -11,11 +11,14 @@ const animatiomForm = ()=>{
             if( input.type === 'text' && validationName(input)){
                 console.log('next')
                 nextElemnt(parent,nextElem)
-            }
-            if( input.type === 'email' && validationName(input)){
+            } else if( input.type === 'email' && validationEmail(input)){
+                console.log('next')
+                nextElemnt(parent,nextElem)
+            } else if( input.type === 'password' && validationPassword(input)){
                 console.log('next')
                 nextElemnt(parent,nextElem)
             }
+           
             
 
         })
@@ -32,9 +35,21 @@ const validationName = (name)=>{
     }
 
 }
+
 const validationEmail = (email)=>{
     let reg = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-    if(email.value === '' || email.test(reg)){
+    if(email.value === '' || !reg.test(email.value)){
+        changeBackgroundError()
+    }else{
+        changeBackgroundValid()
+        return true
+    }
+
+}
+
+const validationPassword = (pass)=>{
+    let reg = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/
+    if(pass.value === '' || !reg.test(pass.value)){
         changeBackgroundError()
     }else{
         changeBackgroundValid()
