@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Space+Grotesk:wght@500&display=swap');
+@import url('./fireworks.scss');
 
 
 * {
@@ -26,6 +27,7 @@ body{
         border-radius: 5px;
         transform: translate(-50%, -50%);
         transition: all 0.5s ease;
+
         i{
           padding: 10px;
         }
@@ -42,37 +44,69 @@ body{
                 font-size: 16px;
                 
             }
+        .show-password{
+            position: absolute;
+            top: 50px;
+            color:white;
+            font-size: 14px;
+            text-decoration:none;
+            &:hover{
+                text-decoration:underline;
+            }
+        }
 
         .error{
             position: absolute;
-            top: 120%;
-            left:20px;
+            top: -35px;
+            left:0;
+            font-size: 14px;
             color:white;
             transition: all 0.5s ease;
-        }
-        .thanks{
-            p{
-                font-size:16px;
-                text-align: center;
-            }
-
-        }    
-       
-        
-
-        
+        }   
     }
+    .thanks{
+        position: absolute;  
+        top:50%;
+        left:50%; 
+        transform: translate(-50%, -50%); 
+        p{
+            font-size:34px;
+            text-align: center;
+            color: white;
+           
+        }
+
+    } 
+    .hide{
+       opacity: 0;
+    } 
+    .show {
+       opacity: 1;
+    } 
 
 }
 
 .inactive{
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 50%);
 
 }
 
 .active{
     opacity: 1;
-    transform: translate(50%, 50%);
+    transform: translate(-50%, -50%);
+}
+
+
+@keyframes shake{
+    0%{
+        transform: translate(-50%, -50%)rotate(0deg)
+    }
+    50%{
+        transform: translate(-50%, -50%)rotate(10deg)
+    }
+    100%{
+        transform: translate(-50%, -50%)rotate(0deg)
+    }
 }

@@ -12,22 +12,44 @@ const animatiomForm = ()=>{
                 console.log('next')
                 nextElemnt(parent,nextElem)
             } else if( input.type === 'email' && validationEmail(input)){
-                console.log('next')
                 nextElemnt(parent,nextElem)
+                let show = document.querySelector('.show-password')
+                show.classList.remove('hide')
             } else if( input.type === 'password' && validationPassword(input)){
-                console.log('next')
                 nextElemnt(parent,nextElem)
+                let show = document.querySelector('.show-password')
+                show.classList.remove('hide')
             }else if( input.name === 'confirmpassword' && validationPasswordConfirm(input)){
                 console.log('next')
                 nextElemnt(parent,nextElem)
+            }else{
+                let fireworks = document.querySelector('.fireworks')
+                fireworks.classList.remove('hide')
+                parent.style.animation = 'shake .5s ease'
             }
             
-
+            parent.addEventListener('animationend', ()=>{
+            parent.style.animation = ''
+         })
         })
     })
 
 }
 
+let show = document.querySelector('.show-password')
+let pass = document.querySelector('.input-password')
+    show.addEventListener('click', ()=>{
+         if( pass.getAttribute('type') === 'password'){
+             pass.setAttribute('type', 'text')
+             show.textContent = 'Hide password'
+
+            }else{
+             pass.setAttribute('type', 'password') 
+             show.textContent = 'Show password'
+            }
+})
+
+///// validation
 const validationName = (name)=>{
     if(name.value === ''){
         changeBackgroundError()
@@ -88,7 +110,15 @@ const validationPasswordConfirm = (pass)=>{
         return true
     }
 
+} 
+
+////// slide of inputs
+const nextElemnt = (parent, nextElem)=>{
+    parent.classList.add('inactive');
+    nextElem.classList.remove('inactive')
+
 }
+///// errrors 
 const errorMessage =(message)=>{
   const error = document.querySelectorAll('.error')
   error.forEach(el => el.textContent = message)
@@ -103,12 +133,6 @@ const changeBackgroundValid = ()=>{
 
 }
 
-
-const nextElemnt = (parent, nextElem)=>{
-    parent.classList.add('inactive');
-    nextElem.classList.remove('inactive')
-
-}
 animatiomForm()
 
 
