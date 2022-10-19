@@ -71,8 +71,8 @@
 }
 
 #firework1 {
-	left: 50%;
-	top: 50%;
+	right: -110%;
+	top: -120%;
 	transform: scale(1);
 }
 #firework1 .explosion::before {
@@ -80,7 +80,7 @@
 }
 
 #firework2 {
-	left: 40%;
+	right: 170%;
 	top: 45%;
 	transform: scale(.7);
 }
@@ -89,8 +89,8 @@
 }
 
 #firework3 {
-	left: 60%;
-	top: 65%;
+	right: -30%;
+	bottom: 50%;
 	transform: scale(.4);
 }
 #firework3 .explosion::before {

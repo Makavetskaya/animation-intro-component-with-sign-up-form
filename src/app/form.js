@@ -23,8 +23,6 @@ const animatiomForm = ()=>{
                 console.log('next')
                 nextElemnt(parent,nextElem)
             }else{
-                let fireworks = document.querySelector('.fireworks')
-                fireworks.classList.remove('hide')
                 parent.style.animation = 'shake .5s ease'
             }
             
